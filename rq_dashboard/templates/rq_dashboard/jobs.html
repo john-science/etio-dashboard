@@ -26,22 +26,6 @@
         </select> 
     </div>
 
-    <p class="intro">
-        <a href="{{ url_for('rq_dashboard.empty_queue', queue_name=queue.name, registry_name=registry_name) }}" id="empty-btn"
-            class="btn btn-outline-danger btn-sm" style="float: right" data-toggle="tooltip"
-            title="Remove all jobs from this queue (<b>destructive</b>)" data-html=true>Empty queue</a>
-        {% if registry_name == 'queued' %}
-        <a href="{{ url_for('rq_dashboard.compact_queue', queue_name=queue.name) }}" id="compact-btn"
-            class="btn btn-outline-success btn-sm" style="float: right; margin-right: 8px;" data-toggle="tooltip"
-            title="Remove all stale jobs from this queue (non-destructive)">Compact</a>
-        {% endif %}
-        {% if registry_name == 'failed' %}
-        <a href="{{ url_for('rq_dashboard.requeue_all', queue_name=queue.name) }}" id="requeue-all-btn" class="btn btn-outline-warning btn-sm"
-            style="float: right; margin-right: 8px;">Requeue All</a>
-        {% endif %}
-        This list below contains all the queued jobs on queue <strong>{{ queue.name }}</strong>, sorted by
-        age (oldest on top).</p>
-
         <div class="table-responsive">
             <table id="jobs" class="table table-bordered">
                 <thead class="thead-light">

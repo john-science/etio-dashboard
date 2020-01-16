@@ -21,7 +21,7 @@ setup(
     version=get_version(),
     url='https://github.com/theJollySin/etio-dashboard',
     license='BSD',
-    author='Vincent Driessen',
+    author='John Stilley',
     author_email='jstilley@etiometry.com',
     description='etio-dashboard is a bespoke web interface Etiometry uses '
                 'on a little test project.',

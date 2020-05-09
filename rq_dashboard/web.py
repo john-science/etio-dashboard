@@ -181,7 +181,7 @@ def serialize_current_job(job):
         job_id=job.id,
         description=job.description,
         created_at=serialize_date(job.created_at),
-        call_string=job.get_call_string(),
+        call_string=job.description,
     )
 
 

@@ -54,12 +54,6 @@
                 <% } %>
             </td>
             <td><span class="creation_date"><%= d.created_at %></span></td>
-            <td class="actions narrow">
-                <% if (d.exc_info) { %>
-                <a href="#" data-role="requeue-job-btn" class="btn btn-outline-warning btn-sm btn-block">Requeue</a>
-                <% } %>
-                <a href="#" data-role="delete-job-btn" class="btn btn-outline-danger btn-sm">Delete</a>
-            </td>
         </tr>
     </script>
 

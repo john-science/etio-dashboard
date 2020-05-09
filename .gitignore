@@ -10,6 +10,7 @@ __pycache__/
 
 # Distribution / packaging
 .Python
+dash_env/
 env/
 bin/
 build/

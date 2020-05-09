@@ -4,7 +4,10 @@ all:
 	@grep -Ee '^[a-z].*:' Makefile | cut -d: -f1 | grep -vF all
 
 clean:
-	rm -rf build/ dist/
+	rm -rf build/ dist/ *.egg-info/
+
+install: clean
+	python setup.py install
 
 release: clean
 	# Check if latest tag is the current head we're releasing
@@ -18,3 +21,4 @@ force_release: clean
 	git push --tags
 	python setup.py sdist bdist_wheel
 	twine upload dist/*
+

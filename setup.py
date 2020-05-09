@@ -1,5 +1,4 @@
 import os
-
 from setuptools import find_packages, setup
 
 
@@ -9,7 +8,7 @@ def get_version():
         locals = {}
         exec(f.read(), locals)
         return locals['VERSION']
-    raise RuntimeError('No version info found.')
+    return '0.0.0'
 
 
 with open("README.md", "r") as fh:
@@ -23,8 +22,7 @@ setup(
     license='BSD',
     author='John Stilley',
     author_email='jstilley@etiometry.com',
-    description='etio-dashboard is a bespoke web interface Etiometry uses '
-                'on a little test project.',
+    description='etio-dashboard is a bespoke Redis web interface used internally at Etiometry',
     long_description=long_description,
     long_description_content_type="text/markdown",
     packages=find_packages(exclude=('tests',)),
@@ -32,11 +30,7 @@ setup(
     zip_safe=False,
     platforms='any',
     install_requires=['rq>=1.0', 'Flask', 'redis', 'arrow', 'redis-sentinel-url'],
-    entry_points={
-        'console_scripts': [
-            'rq-dashboard = rq_dashboard.cli:main'
-        ]
-    },
+    entry_points={'console_scripts': ['rq-dashboard = rq_dashboard.cli:main']},
     classifiers=[
         'Development Status :: 3 - Alpha',
         'Intended Audience :: Developers',
@@ -46,7 +40,6 @@ setup(
         'Intended Audience :: System Administrators',
         'License :: OSI Approved :: BSD License',
         'Operating System :: POSIX',
-        'Operating System :: MacOS',
         'Operating System :: Unix',
         'Programming Language :: Python',
         'Programming Language :: Python :: 3',
@@ -61,3 +54,4 @@ setup(
         'Topic :: System :: Monitoring',
     ]
 )
+

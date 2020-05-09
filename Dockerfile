@@ -11,4 +11,5 @@ RUN python3 setup.py develop
 
 EXPOSE 9181
 
-ENTRYPOINT ["python3", "-m", "rq_dashboard"]
+ENTRYPOINT ["python3", "-m", "rq_dashboard", "--redis-url=redis://localhost:6380"]
+

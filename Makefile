@@ -6,7 +6,12 @@ all:
 clean:
 	rm -rf build/ dist/ *.egg-info/
 
-install: clean
+uninstall: clean
+	pip uninstall -y etio-dashboard
+	pip uninstall -y etio-dashboard
+	pip uninstall -y etio-dashboard
+
+install: uninstall
 	python setup.py install
 
 release: clean
@@ -21,4 +26,3 @@ force_release: clean
 	git push --tags
 	python setup.py sdist bdist_wheel
 	twine upload dist/*
-

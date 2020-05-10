@@ -8,10 +8,14 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 ADD . /
 RUN pip3 install -r requirements.txt
 RUN python3 setup.py install
-ARG REDIS_HOST=localhost
-ARG REDIS_PORT=6379
-ARG DASH_PORT=9181
 
+ARG DASH_PORT=9181
 EXPOSE $DASH_PORT
 
-ENTRYPOINT ["python3", "-m", "rq_dashboard", "--redis-url=redis://$REDIS_HOST:$REDIS_PORT"]
+ARG REDIS_HOST=localhost
+ARG REDIS_PORT=6379
+ENV RHOST=$REDIS_HOST
+ENV RPORT=$REDIS_PORT
+
+ENTRYPOINT python3 -m rq_dashboard --redis-url=redis://${RHOST}:${RPORT}
+

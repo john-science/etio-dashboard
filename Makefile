@@ -1,4 +1,4 @@
-.PHONY: all clean release force_release
+.PHONY: all clean uninstall install release force_release
 
 all:
 	@grep -Ee '^[a-z].*:' Makefile | cut -d: -f1 | grep -vF all

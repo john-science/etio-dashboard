@@ -7,9 +7,10 @@ clean:
 	rm -rf build/ dist/ *.egg-info/
 
 uninstall: clean
-	pip uninstall -y etio-dashboard
-	pip uninstall -y etio-dashboard
-	pip uninstall -y etio-dashboard
+	@echo pip uninstalling expm
+	$(shell pip uninstall -y etio-dashboard >/dev/null 2>/dev/null)
+	$(shell pip uninstall -y etio-dashboard >/dev/null 2>/dev/null)
+	$(shell pip uninstall -y etio-dashboard >/dev/null 2>/dev/null)
 
 install: uninstall
 	python setup.py install

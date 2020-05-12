@@ -1,6 +1,6 @@
+include Dockerfile
 include setup.py
 include README.md
-include *.rst
 include LICENSE
 recursive-include rq_dashboard/templates *
 recursive-include rq_dashboard/static *
